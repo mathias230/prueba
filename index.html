@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetuchini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>FETUCHINI</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" class="contact-btn">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Art is life</h2>
+            <p>Experience the beauty of creativity</p>
+            <a href="#">VIEW PRODUCTS</a>
+        </div>
+    </section>
+
+    <!-- Sección de Galería -->
+    <section class="gallery-section">
+        <h2>Galería</h2>
+        <div class="gallery-container">
+            <div class="gallery-item fade-in">
+                <img src="image1.png" alt="Imagen 1"> <!-- Cambia la imagen por la que quieras -->
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="image2.png" alt="Imagen 2"> <!-- Cambia la imagen por la que quieras -->
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="image3.png" alt="Imagen 3"> <!-- Cambia la imagen por la que quieras -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about-us">
+        <div class="about-container">
+            <div class="about-info">
+                <h2>Sobre Nosotros</h2>
+                <h3>Descubre Nuestra Historia</h3>
+                <p>FETUCHINI STUDIOS, creado en Quito el 5 de agosto, la idea nació por una llamada y creamos una compañía virtual de dibujo porque estábamos aburridos. Recién empezamos pero con el tiempo creceremos y alcanzaremos todas nuestras metas.</p>
+            </div>
+            <div class="about-image">
+                <img src="sobre-nosotros-image.jpg" alt="Sobre nosotros">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contáctanos -->
+    <section class="contact-us">
+        <h2>Contáctanos</h2>
+        <p>Nos serviría de mucha ayuda tus sugerencias, contáctanos por Email o Instagram:</p>
+        <p>Email: fetuchiniproductossa@gmail.com</p>
+        <p>Instagram: <a href="https://instagram.com/fetuchinistudios" target="_blank">@fetuchinistudios</a></p>
+    </section>
+
+    <!-- Resto de la página -->
+    <footer>
+        <p>&copy; 2024 Fetuchini Studios. Página desarrollada y diseñada por: Mathias</p>
+    </footer>
+
+    <script>
+        // Detecta cuando las imágenes entran en la vista y añade la clase 'visible' para el fade-in
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(
+            entries, 
+            appearOnScroll
+        ) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add("visible");
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
